@@ -47,7 +47,7 @@ const sponsors = [
 
 export function Footer() {
   return (
-    <footer className="mt-24 bg-[#0f1a2a] text-white">
+    <footer className="mt-0 bg-[#0f1a2a] text-white">
       <div className="mx-auto w-[90vw] max-w-6xl px-6 py-12">
         <div className="flex flex-wrap items-center justify-center gap-6">
           {socialLinks.map((social) => (

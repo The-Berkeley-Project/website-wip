@@ -37,7 +37,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="transition-colors hover:text-[#003262]"
+                  className="text-black transition-colors hover:text-[#003262]"
                 >
                   {link.label}
                 </a>
@@ -76,7 +76,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block rounded-full px-3 py-2 text-center transition-colors hover:bg-[#f2f2f2]"
+                  className="block rounded-full px-3 py-2 text-center text-black transition-colors hover:bg-[#f2f2f2]"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
