@@ -1,3 +1,5 @@
+import bluebanner from "@/components/bluebanner";
+
 export default function ImpactPage() {
   return (
     <div className="min-h-screen bg-[#f5f5f5]">
