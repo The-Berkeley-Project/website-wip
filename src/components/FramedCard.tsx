@@ -19,7 +19,8 @@ const FramedCard: React.FC<Props> = ({
   width = "300px", 
   height = "420px",
 }) => {
-  const titleFontSize = title && title.length > 26 ? "text-[11px]" : "text-sm";
+  const titleFontSize = title && title.length > 24 ? "text-[10px]" : "text-[12px]";
+  const bottomTextFontSize = bottomText && bottomText.length > 24 ? "text-[12px]" : "text-[14px]";
 
   return (
     <div
@@ -60,7 +61,7 @@ const FramedCard: React.FC<Props> = ({
       {/* Top banner title */}
       {title && (
         <div
-          className={`absolute top-[36px] left-[100%] -translate-x-[50%] w-[240px] ${titleFontSize} font-bold text-[#0C0C24] text-center whitespace-nowrap overflow-hidden text-ellipsis z-40`}
+          className={`absolute top-[28px] left-[100%] -translate-x-[40%] w-[240px] ${titleFontSize} font-bold text-[#0C0C24] text-center whitespace-nowrap overflow-hidden text-ellipsis z-40`}
           style={{
             lineHeight: "1.25",
             transform: "translateX(-50%)",
@@ -75,7 +76,7 @@ const FramedCard: React.FC<Props> = ({
       {/* Bottom text */}
       {bottomText && (
         <div
-          className="absolute bottom-[47px] left-1/2 -translate-x-1/2 text-[14px] font-bold text-[#0C0C24] text-center whitespace-nowrap z-40"
+          className={`absolute bottom-[36px] left-1/2 -translate-x-1/2 ${bottomTextFontSize} font-bold text-[#0C0C24] text-center whitespace-nowrap z-40`}
         >
           {bottomText}
         </div>
