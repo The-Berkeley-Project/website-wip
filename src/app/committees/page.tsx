@@ -1,6 +1,7 @@
 import React from "react";
-import LongCard from "@/components/longCard";
 import FramedCard from "@/components/FramedCard";
+import CardFan from "@/components/CardFan";
+import LongCard from "@/components/longCard";
 
 export default function CommitteesPage() {
   // Exec
@@ -92,7 +93,7 @@ export default function CommitteesPage() {
       color: "#ECECEC",
       members: [
         { name: "Jordan Cheng (she/her)", image: "/SitePlanning.png" },
-        { name: "Sophia Bazini-Barakat she/her", image: "/SitePlanning2.png" },
+        { name: "Sophia Bazini-Barakat (she/her)", image: "/SitePlanning2.png" },
       ],
     },
     {
@@ -152,40 +153,46 @@ export default function CommitteesPage() {
           ))}
 
           <div className="flex flex-col space-y-12">
-            {committees.map((committee) => (
-              <div
-                key={committee.id}
-                className="flex flex-col md:flex-row items-start justify-between gap-6"
-              >
-                {/* Left Text Area */}
-                <div className="md:w-[42%] text-left space-y-3">
-                  <h3 className="text-xl font-bold text-[#0875DF]">
-                    {committee.title}
-                  </h3>
-                  <p className="text-[15px] text-gray-700 leading-relaxed">
-                    {committee.description}
-                  </p>
-                </div>
+            {committees.map((committee) => {
+              const memberCount = committee.members.length;
+              const fanCount = Math.min(memberCount, 3) as 1 | 2 | 3;
+              const roleTitle = memberCount > 1 ? "Co-Director" : "Director";
+              const cards = committee.members.slice(0, fanCount).map((member) => ({
+                frameUrl: "/Frame1.png",
+                imageUrl: member.image,
+                bgColor: committee.color,
+                title: `${committee.title} ${roleTitle}`,
+                bottomText: member.name,
+                width: "220px",
+                height: "320px",
+              }));
 
-                {/* Right Cards Area */}
-                <div className="flex flex-wrap justify-center md:justify-end gap-4 md:w-[58%]">
-                  {committee.members.map((m, i) => (
-                    <FramedCard
-                      key={i}
-                      frameUrl="/Frame1.png"
-                      imageUrl={m.image}
-                      bgColor={committee.color}
-                      title={`${committee.title} ${
-                        committee.members.length > 1 ? "Co-Director" : "Director"
-                      }`}
-                      bottomText={m.name}
-                      width="220px"
-                      height="320px"
+              return (
+                <div
+                  key={committee.id}
+                  className="space-y-6 md:space-y-0 md:grid md:grid-cols-[minmax(0,45%)_minmax(0,55%)] md:items-center md:gap-10"
+                >
+                  {/* Left Text Area */}
+                  <div className="text-left space-y-3 md:space-y-4">
+                    <h3 className="text-xl font-bold text-[#0875DF]">
+                      {committee.title}
+                    </h3>
+                    <p className="text-[15px] text-gray-700 leading-relaxed">
+                      {committee.description}
+                    </p>
+                  </div>
+
+                  {/* Right Cards Area */}
+                  <div className="w-full flex justify-center md:justify-end">
+                    <CardFan
+                      count={fanCount}
+                      cards={cards}
+                      className="w-full max-w-[420px] md:max-w-[460px]"
                     />
-                  ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
       </main>
