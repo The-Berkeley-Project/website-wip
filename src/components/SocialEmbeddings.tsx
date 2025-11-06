@@ -46,15 +46,6 @@ const SocialEmbeddings: React.FC<Props> = ({
           </div>
         </div>
 
-        {/* Instagram Embed */}
-        <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
-            <div className="w-full h-full flex items-center justify-center p-2">
-              <InstagramEmbed url={instagramUrl} width={430} />
-            </div>
-          </div>
-        </div>
-
         {/* Newsletter Placeholder */}
         <div className="flex justify-center w-full">
           <div 
@@ -72,6 +63,15 @@ const SocialEmbeddings: React.FC<Props> = ({
               <p className="text-gray-500 text-sm">
                 Stay tuned for updates from our community
               </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Instagram Embed */}
+        <div className="flex justify-center w-full">
+          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
+            <div className="w-full h-full flex items-center justify-center p-2">
+              <InstagramEmbed url={instagramUrl} width={430} />
             </div>
           </div>
         </div>
