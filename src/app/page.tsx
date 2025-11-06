@@ -1,4 +1,4 @@
-import CardSection from "@/components/CardSection";
+import BlueBanner from "@/components/bluebanner";
 
 export default function Home() {
   return (
