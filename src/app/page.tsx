@@ -1,4 +1,5 @@
 import BlueBanner from "@/components/bluebanner";
+import SocialEmbeddings from "@/components/SocialEmbeddings";
 
 export default function Home() {
   return (
@@ -27,6 +28,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <SocialEmbeddings />
 
       <BlueBanner />
 
