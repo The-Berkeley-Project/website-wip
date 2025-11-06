@@ -7,6 +7,7 @@ import { TikTokEmbed, InstagramEmbed } from "react-social-media-embed";
  * Displays BP's latest TikTok video, Instagram post, and newsletter.
  */
 
+// need to hardcode these for now
 const TOK_URL = "https://www.tiktok.com/@theberkeleyproject/video/7567922093875072270";
 const INSTAGRAM_URL = "https://www.instagram.com/p/DQiVyGCkRQ8/";
 const NEWSLETTER_IMAGE_URL = "/logo.png";
