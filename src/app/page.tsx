@@ -28,8 +28,6 @@ export default function Home() {
         </div>
       </section>
 
-      <BlueBanner />
-
       <section className="mx-auto mt-16 grid max-w-5xl gap-6 px-6 pb-24 sm:grid-cols-2">
         <article className="rounded-3xl bg-white p-6 shadow-[0_12px_30px_rgba(0,0,0,0.1)]">
           <h2 className="text-xl font-semibold text-[#003262]">
