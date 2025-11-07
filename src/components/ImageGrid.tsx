@@ -1,105 +1,144 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type ImageItem = { img: string };
-type Props = {
+export type ImageItem = { img: string };
+export type ImageGridProps = {
   images: ImageItem[];
   onClickImage?: (img: string) => void;
 };
 
-export default function ImageGrid({ images, onClickImage }: Props) {
-  const [visibleCount, setVisibleCount] = useState(0);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+export default function ImageGrid({ images, onClickImage }: ImageGridProps) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  // Reveal images one by one for a subtle entrance
+  const openLightbox = useCallback(
+    (index: number) => {
+      setLightboxIndex(index);
+      onClickImage?.(images[index].img);
+      document.body.style.overflow = "hidden";
+    },
+    [images, onClickImage]
+  );
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIndex(null);
+    document.body.style.overflow = "";
+  }, []);
+
+  const next = () =>
+    setLightboxIndex((prev) =>
+      prev === null ? null : (prev + 1) % images.length
+    );
+
+  const prev = () =>
+    setLightboxIndex((prev) =>
+      prev === null ? null : (prev - 1 + images.length) % images.length
+    );
+
+  // Keyboard controls
   useEffect(() => {
-    if (visibleCount < images.length) {
-      const timer = setTimeout(() => {
-        setVisibleCount((prev) => prev + 1);
-      }, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [visibleCount, images.length]);
+    const handler = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [lightboxIndex, closeLightbox]);
 
   return (
     <>
-      {/* Scrollable grid container */}
-      <div className="max-h-[75vh] overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-gray-400/40 scrollbar-track-transparent">
-        <div className="grid gap-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
-          <AnimatePresence>
-            {images.slice(0, visibleCount).map((item, index) => (
-              <motion.div
-                key={item.img}
-                className="relative overflow-hidden rounded-lg cursor-pointer group shadow-sm hover:shadow-md bg-gray-50"
-                onClick={() => {
-                  setSelectedImage(item.img);
-                  onClickImage?.(item.img);
-                }}
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 15,
-                  delay: index * 0.03,
-                }}
-              >
-                <img
-                  src={item.img}
-                  alt=""
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500 ease-out"
-                  loading="lazy"
-                />
-                {/* Soft overlay on hover */}
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
+      {/* GRID */}
+      <div className="grid gap-6 grid-cols-2 sm:grid-cols-3 md:grid-cols-5 p-6">
+        <AnimatePresence>
+          {images.map((item, index) => (
+            <motion.div
+              key={item.img}
+              className="relative overflow-hidden rounded-md cursor-pointer group shadow-sm hover:shadow-lg bg-gray-50"
+              onClick={() => openLightbox(index)}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 95,
+                damping: 13,
+                delay: index * 0.04,
+              }}
+              whileHover={{ scale: 1.10 }} // gentle lift on hover
+            >
+              <img
+                src={item.img}
+                alt=""
+                className="w-full h-56 object-cover transform transition-all duration-400 ease-out group-hover:scale-105 group-hover:brightness-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300" />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </div>
 
-      {/* Enlarged image overlay */}
+      {/* LIGHTBOX */}
       <AnimatePresence>
-        {selectedImage && (
+        {lightboxIndex !== null && (
           <motion.div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-[100] p-4"
+            className="fixed inset-0 bg-black/85 backdrop-blur-sm flex items-center justify-center z-[200] p-8 sm:p-12"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.28, ease: "easeInOut" }}
           >
-            {/* Click background to close */}
+            {/* backdrop closes */}
             <div
               className="absolute inset-0 cursor-pointer"
-              onClick={() => setSelectedImage(null)}
+              onClick={closeLightbox}
             />
 
-            {/* Enlarged image */}
             <motion.img
-              src={selectedImage}
-              alt="Enlarged"
-              className="relative max-h-[85vh] max-w-[90vw] rounded-lg shadow-2xl object-contain z-[110]"
+              key={images[lightboxIndex].img}
+              src={images[lightboxIndex].img}
+              alt="Selected"
+              className="relative max-h-[90vh] max-w-[95vw] rounded-md shadow-2xl object-contain z-[210]"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 120,
-                damping: 14,
-              }}
+              transition={{ type: 'spring', stiffness: 120, damping: 14 }}
             />
 
-            {/* Close button */}
+            {/* Close */}
             <motion.button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-6 right-8 text-white text-4xl font-light hover:opacity-80 z-[120]"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
+              onClick={closeLightbox}
+              className="absolute top-8 right-10 text-white text-5xl font-light hover:opacity-80 z-[220]"
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
             >
               &times;
+            </motion.button>
+
+            {/* Prev */}
+            <motion.button
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
+              className="absolute left-8 text-white text-6xl font-light hover:opacity-90 z-[220] select-none"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              &#8249;
+            </motion.button>
+
+            {/* Next */}
+            <motion.button
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
+              className="absolute right-8 text-white text-6xl font-light hover:opacity-90 z-[220] select-none"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              &#8250;
             </motion.button>
           </motion.div>
         )}

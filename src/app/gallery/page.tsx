@@ -3,21 +3,12 @@
 import React, { useState } from "react";
 import BoxCard from "@/components/BoxCard";
 import ImageGrid from "@/components/ImageGrid";
+import { motion, AnimatePresence } from "framer-motion";
 
 type ImageItem = { img: string };
-
-type GallerySection = {
-  title: string;
-  image: string;
-  gallery: ImageItem[];
-};
-
+type GallerySection = { title: string; image: string; gallery: ImageItem[] };
 type Galleries = Record<string, GallerySection[]>;
-
-type OpenGallery = {
-  year: string;
-  index: number;
-} | null;
+type OpenGallery = { year: string; index: number } | null;
 
 export default function GalleryPage() {
   const [openGallery, setOpenGallery] = useState<OpenGallery>(null);
@@ -25,23 +16,71 @@ export default function GalleryPage() {
   const galleries: Galleries = {
     "2025": [
       {
-        title: "SPRING 2025",
-        image: "/SPRING2025.png",
-        gallery: [
-        ],
+        title: "FALL",
+        image: "/photos/fa25_cover.png",
+        gallery: [],
       },
       {
-        title: "FALL 2025",
-        image: "/FALL2025.png",
+        title: "SPRING",
+        image: "/photos/sp25/sp25_cover.png",
         gallery: [
-
+          { img: "/photos/sp25/sp25_1.jpg" },
+          { img: "/photos/sp25/sp25_2.jpg" },
+          { img: "/photos/sp25/sp25_3.jpg" },
+          { img: "/photos/sp25/sp25_4.jpg" },
+          { img: "/photos/sp25/sp25_5.jpg" },
+          { img: "/photos/sp25/sp25_6.jpg" },
+          { img: "/photos/sp25/sp25_7.jpg" },
+          { img: "/photos/sp25/sp25_8.jpg" },
+          { img: "/photos/sp25/sp25_9.jpg" },
+          { img: "/photos/sp25/sp25_10.jpg" },
+          { img: "/photos/sp25/sp25_11.jpg" },
+          { img: "/photos/sp25/sp25_12.jpg" },
+          { img: "/photos/sp25/sp25_13.jpg" },
+          { img: "/photos/sp25/sp25_14.jpg" },
+          { img: "/photos/sp25/sp25_15.jpg" },
+          { img: "/photos/sp25/sp25_16.jpg" },
+          { img: "/photos/sp25/sp25_17.jpg" },
+          { img: "/photos/sp25/sp25_18.jpg" },
+          { img: "/photos/sp25/sp25_19.jpg" },
+          { img: "/photos/sp25/sp25_20.jpg" },
+          { img: "/photos/sp25/sp25_21.jpg" },
+          { img: "/photos/sp25/sp25_22.jpg" },
+          { img: "/photos/sp25/sp25_23.jpg" },
+          { img: "/photos/sp25/sp25_24.jpg" },
         ],
       },
     ],
     "2024": [
       {
-        title: "SPRING 2024",
-        image: "/photos/SPRING2024.png",
+        title: "FALL",
+        image: "/photos/fa24/fa24_cover.png",
+        gallery: [
+          { img: "/photos/fa24/fa24_1.jpeg" },
+          { img: "/photos/fa24/fa24_2.jpg" },
+          { img: "/photos/fa24/fa24_3.jpeg" },
+          { img: "/photos/fa24/fa24_4.jpg" },
+          { img: "/photos/fa24/fa24_5.jpg" },
+          { img: "/photos/fa24/fa24_6.jpeg" },
+          { img: "/photos/fa24/fa24_7.jpg" },
+          { img: "/photos/fa24/fa24_8.jpeg" },
+          { img: "/photos/fa24/fa24_9.jpg" },
+          { img: "/photos/fa24/fa24_10.jpeg" },
+          { img: "/photos/fa24/fa24_11.jpg" },
+          { img: "/photos/fa24/fa24_12.jpg" },
+          { img: "/photos/fa24/fa24_13.jpg" },
+          { img: "/photos/fa24/fa24_14.jpg" },
+          { img: "/photos/fa24/fa24_15.jpeg" },
+          { img: "/photos/fa24/fa24_16.jpg" },
+          { img: "/photos/fa24/fa24_17.jpg" },
+          { img: "/photos/fa24/fa24_18.jpeg" },
+          { img: "/photos/fa24/fa24_19.jpg" },
+          { img: "/photos/fa24/fa24_20.jpg" },
+        ],
+      },
+      {
+        title: "SPRING",
+        image: "/photos/sp24/sp24_cover.png",
         gallery: [
           { img: "/photos/sp24/sp24_1.jpg" },
           { img: "/photos/sp24/sp24_2.jpg" },
@@ -49,17 +88,82 @@ export default function GalleryPage() {
           { img: "/photos/sp24/sp24_4.jpg" },
           { img: "/photos/sp24/sp24_5.jpg" },
           { img: "/photos/sp24/sp24_6.jpg" },
+          { img: "/photos/sp24/sp24_7.jpg" },
+          { img: "/photos/sp24/sp24_8.jpg" },
+          { img: "/photos/sp24/sp24_9.jpg" },
+          { img: "/photos/sp24/sp24_10.jpg" },
+          { img: "/photos/sp24/sp24_11.jpg" },
+          { img: "/photos/sp24/sp24_12.jpg" },
+          { img: "/photos/sp24/sp24_13.jpg" },
+          { img: "/photos/sp24/sp24_14.jpg" },
+          { img: "/photos/sp24/sp24_15.jpg" },
+          { img: "/photos/sp24/sp24_16.jpg" },
+          { img: "/photos/sp24/sp24_17.jpg" },
+          { img: "/photos/sp24/sp24_18.jpg" },
+          { img: "/photos/sp24/sp24_19.jpg" },
+          { img: "/photos/sp24/sp24_20.jpg" },
+          { img: "/photos/sp24/sp24_21.jpg" },
+        ],
+      },
+    ],
+    "2023": [
+      {
+        title: "FALL",
+        image: "/photos/fa23/fa23_cover.png",
+        gallery: [
+          { img: "/photos/fa23/fa23_1.jpg" },
+          { img: "/photos/fa23/fa23_2.jpg" },
+          { img: "/photos/fa23/fa23_3.jpg" },
+          { img: "/photos/fa23/fa23_4.jpg" },
+          { img: "/photos/fa23/fa23_5.jpg" },
+          { img: "/photos/fa23/fa23_6.jpg" },
+          { img: "/photos/fa23/fa23_7.jpg" },
+          { img: "/photos/fa23/fa23_8.jpg" },
+          { img: "/photos/fa23/fa23_9.jpg" },
+          { img: "/photos/fa23/fa23_10.jpg" },
+          { img: "/photos/fa23/fa23_11.jpg" },
+          { img: "/photos/fa23/fa23_12.jpeg" },
+          { img: "/photos/fa23/fa23_13.jpg" },
+          { img: "/photos/fa23/fa23_14.jpeg" },
+          { img: "/photos/fa23/fa23_15.jpeg" },
+          { img: "/photos/fa23/fa23_16.jpeg" },
+          { img: "/photos/fa23/fa23_17.jpeg" },
+          { img: "/photos/fa23/fa23_18.jpeg" },
+          { img: "/photos/fa23/fa23_19.jpeg" },
+          { img: "/photos/fa23/fa23_20.jpeg" },
+          { img: "/photos/fa23/fa23_21.jpeg" },
+          { img: "/photos/fa23/fa23_22.jpeg" },
         ],
       },
       {
-        title: "FALL 2024",
-        image: "/photos/FALL2024.png",
+        title: "SPRING",
+        image: "/photos/sp23/sp23_cover.png",
         gallery: [
-
+          { img: "/photos/sp23/sp23_1.jpg" },
+          { img: "/photos/sp23/sp23_2.jpg" },
+          { img: "/photos/sp23/sp23_3.jpg" },
+          { img: "/photos/sp23/sp23_4.jpeg" },
+          { img: "/photos/sp23/sp23_5.jpeg" },
+          { img: "/photos/sp23/sp23_6.jpeg" },
+          { img: "/photos/sp23/sp23_7.jpeg" },
+          { img: "/photos/sp23/sp23_8.jpg" },
+          { img: "/photos/sp23/sp23_9.jpg" },
+          { img: "/photos/sp23/sp23_10.jpg" },
+          { img: "/photos/sp23/sp23_11.jpg" },
+          { img: "/photos/sp23/sp23_12.jpg" },
+          { img: "/photos/sp23/sp23_13.jpg" },
+          { img: "/photos/sp23/sp23_14.jpg" },
+          { img: "/photos/sp23/sp23_15.jpg" },
+          { img: "/photos/sp23/sp23_16.jpg" },
+          { img: "/photos/sp23/sp23_17.jpeg" },
+          { img: "/photos/sp23/sp23_18.jpg" },
+          { img: "/photos/sp23/sp23_19.jpeg" },
+          { img: "/photos/sp23/sp23_20.jpeg" },
         ],
       },
     ],
   };
+
 
   const selectedGallery: GallerySection | null =
     openGallery && galleries[openGallery.year]
@@ -71,9 +175,11 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] flex flex-col items-center py-24">
+    <div className="min-h-screen bg-[#f5f5f5] flex flex-col items-center pt-36 pb-24 font-sans">
       {/* 2025 SECTION */}
-      <h1 className="text-4xl font-bold text-gray-800 mb-10">2025</h1>
+      <h2 className="text-3xl font-semibold text-gray-800 mb-10 uppercase tracking-wide">
+        2025
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl px-6 mb-24">
         {galleries["2025"].map((section, index) => (
           <div
@@ -87,7 +193,9 @@ export default function GalleryPage() {
       </div>
 
       {/* 2024 SECTION */}
-      <h1 className="text-4xl font-bold text-gray-800 mb-10">2024</h1>
+      <h2 className="text-3xl font-semibold text-gray-800 mb-10 uppercase tracking-wide">
+        2024
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl px-6 mb-24">
         {galleries["2024"].map((section, index) => (
           <div
@@ -100,33 +208,78 @@ export default function GalleryPage() {
         ))}
       </div>
 
+      {/* 2023 SECTION */}
+      <h2 className="text-3xl font-semibold text-gray-800 mb-10 uppercase tracking-wide">
+        2023
+      </h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl px-6 mb-24">
+        {galleries["2023"].map((section, index) => (
+          <div
+            key={`2023-${index}`}
+            onClick={() => handleCardClick("2023", index)}
+            className="cursor-pointer"
+          >
+            <BoxCard title={section.title} image={section.image} />
+          </div>
+        ))}
+      </div>
+
+        
       {/* MODAL */}
+    <AnimatePresence>
       {selectedGallery && (
-        <div className="fixed inset-0 bg-black/70 z-50 flex items-start justify-center backdrop-blur-sm overflow-y-auto">
-          <div className="relative w-full max-w-6xl bg-white rounded-2xl shadow-2xl mt-16 mb-16 p-6">
+        <motion.div
+          className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center backdrop-blur-sm overflow-y-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          {/* The modal card itself */}
+          <motion.div
+            className={`relative w-full max-w-[88vw] rounded-md shadow-[0_12px_30px_rgba(0,0,0,0.2)] mt-14 mb-14 p-8 font-sans transition-all duration-300
+              bg-gradient-to-b from-[#e0f2ff] to-white`}
+            initial={{ y: 40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 40, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
             {/* Close Button */}
             <button
               onClick={() => setOpenGallery(null)}
-              className="absolute top-4 right-6 text-4xl font-light text-gray-700 hover:opacity-80 z-10"
+              className="absolute top-5 right-7 text-3xl font-light text-gray-700 hover:opacity-80 z-10"
+              aria-label="Close gallery"
             >
               &times;
             </button>
 
             {/* Title */}
-            <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+            <h2 className="text-2xl md:text-3xl font-medium uppercase tracking-wide text-center mb-6 text-[#003262]">
               {selectedGallery.title} Gallery
             </h2>
 
-            {/* Scrollable ImageGrid */}
-            <div className="max-h-[70vh] overflow-y-auto">
-              <ImageGrid
-                images={selectedGallery.gallery}
-                onClickImage={(img) => console.log("Clicked:", img)}
-              />
+            {/* Scrollable ImageGrid or Coming Soon */}
+            <div className="max-h-[75vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-transparent pt-6">
+              {selectedGallery.gallery.length === 0 ? (
+                <motion.p
+                  className="text-2xl text-gray-800 font-medium py-32 tracking-wide text-center"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.25, duration: 0.4 }}
+                >
+                  Coming Soon!
+                </motion.p>
+              ) : (
+                <ImageGrid
+                  images={selectedGallery.gallery}
+                  onClickImage={(img) => console.log("Clicked:", img)}
+                />
+              )}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
-    </div>
+    </AnimatePresence>
+</div>
   );
 }
