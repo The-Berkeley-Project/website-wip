@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 const navLinks = [
@@ -23,14 +24,16 @@ export function Navbar() {
     <div className="fixed top-6 left-1/2 z-50 w-[90vw] max-w-6xl -translate-x-1/2">
       <nav className="relative rounded-full bg-white px-6 py-3 shadow-[0_12px_30px_rgba(0,0,0,0.2)]">
         <div className="flex items-center justify-between md:gap-6 md:justify-between">
-          <Image
-            src="/logo.png"
-            alt="Berkeley Project logo"
-            width={48}
-            height={48}
-            className="h-12 w-12 rounded-full bg-white object-contain"
-            priority
-          />
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Berkeley Project logo"
+              width={48}
+              height={48}
+              className="h-12 w-12 rounded-full bg-white object-contain cursor-pointer transition-opacity hover:opacity-80"
+              priority
+            />
+          </Link>
 
           <ul className="hidden md:flex md:items-center md:gap-6 md:text-sm md:font-medium md:uppercase md:tracking-wide md:ml-auto">
             {navLinks.map((link) => (
