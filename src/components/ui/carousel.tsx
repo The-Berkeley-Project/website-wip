@@ -146,6 +146,7 @@ const Carousel = React.forwardRef<
       }
 
       let animationFrameId: number
+      let intervalId: NodeJS.Timeout | null = null
       let isScrolling = true
       const scrollSpeed = 0.5 // pixels per frame (adjust for speed)
 
@@ -163,19 +164,51 @@ const Carousel = React.forwardRef<
         const currentScroll = viewport.scrollLeft
         const maxScroll = viewport.scrollWidth - viewport.clientWidth
 
-        // Continuously scroll
-        viewport.scrollLeft = currentScroll + scrollSpeed
-
-        // Reset scroll position when reaching the end (for infinite loop)
-        if (viewport.scrollLeft >= maxScroll - 1) {
-          viewport.scrollLeft = 0
+        // Only scroll if there's actually scrollable content
+        if (maxScroll > 1) {
+          // Clear interval if it was set (when items didn't fit)
+          if (intervalId) {
+            clearInterval(intervalId)
+            intervalId = null
+          }
+          
+          // Continuously scroll
+          const newScroll = currentScroll + scrollSpeed
+          
+          // Reset scroll position when reaching the end (for infinite loop)
+          if (newScroll >= maxScroll) {
+            viewport.scrollLeft = 0
+          } else {
+            viewport.scrollLeft = newScroll
+          }
+          
+          animationFrameId = requestAnimationFrame(scroll)
+        } else {
+          // If all items fit, use Embla's scrollNext with a timer for smooth looping
+          // This ensures continuous movement even when all items are visible
+          if (!intervalId) {
+            intervalId = setInterval(() => {
+              if (isScrolling && api) {
+                api.scrollNext()
+              }
+            }, 3000) // Scroll to next item every 3 seconds when all items are visible
+          }
+          // Continue checking in case window is resized
+          animationFrameId = requestAnimationFrame(scroll)
         }
-
-        animationFrameId = requestAnimationFrame(scroll)
       }
 
       // Start scrolling
       animationFrameId = requestAnimationFrame(scroll)
+
+      // Handle window resize to re-check scroll state
+      const handleResize = () => {
+        if (intervalId) {
+          clearInterval(intervalId)
+          intervalId = null
+        }
+      }
+      window.addEventListener('resize', handleResize)
 
       // Prevent any manual scrolling interference
       const viewport = api.containerNode()
@@ -189,6 +222,10 @@ const Carousel = React.forwardRef<
         if (animationFrameId) {
           cancelAnimationFrame(animationFrameId)
         }
+        if (intervalId) {
+          clearInterval(intervalId)
+        }
+        window.removeEventListener('resize', handleResize)
         if (viewport) {
           viewport.style.overflow = ''
           viewport.style.pointerEvents = ''

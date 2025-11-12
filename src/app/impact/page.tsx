@@ -1,5 +1,4 @@
 import Image from "next/image";
-import BlueBanner from "@/components/bluebanner";
 import SusSiteCard from "@/components/sussitecard";
 import { Leaf, Package, School } from "lucide-react";
 
@@ -36,7 +35,7 @@ export default function ImpactPage() {
 
       {/* blue banner with big numbers */}
       <section className="relative mt-16">
-        <BlueBanner />
+        <div className="w-full h-48 bg-blue-400 rounded-t-[3rem]"></div>
 
         {/* big numbers */}
         <div className="absolute inset-0 flex flex-col sm:flex-row items-center justify-center gap-12 text-white text-center">
