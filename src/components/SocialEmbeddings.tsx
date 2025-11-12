@@ -24,47 +24,47 @@ const SocialEmbeddings: React.FC<Props> = ({
   newsletterUrl = NEWSLETTER_URL,
 }) => {
   return (
-    <section className="w-full py-12 px-4 bg-white">
+    <section className="w-full py-3 px-4 bg-white">
       {/* Header Section */}
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-3">
+      <div className="text-center mb-3">
+        <h2 className="text-xl font-bold text-gray-900 mb-1">
           Check Out Our Socials!
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xs text-gray-600 max-w-2xl mx-auto">
           See the impact we&apos;re making in the Berkeley community through our social media
         </p>
       </div>
 
       {/* Embeds Container */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start justify-items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 items-start justify-items-center">
         {/* TikTok Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
-            <div className="w-full h-full flex items-center justify-center p-2">
-              <TikTokEmbed url={tiktokUrl} width={430} />
+          <div className="w-[330px] h-[400px] flex items-center justify-center bg-white rounded-lg border border-gray-300 shadow-sm overflow-auto">
+            <div className="w-full h-full flex items-center justify-center scale-75 origin-center">
+              <TikTokEmbed url={tiktokUrl} width={325} />
             </div>
           </div>
         </div>
 
         {/* Newsletter Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-hidden">
+          <div className="w-[280px] h-[400px] flex items-center justify-center bg-white rounded-lg border border-gray-300 shadow-sm overflow-hidden">
             <iframe
               src={newsletterUrl}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
               title="Berkeley Project Newsletter"
-              className="rounded-2xl"
+              className="rounded-lg"
             />
           </div>
         </div>
 
         {/* Instagram Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
-            <div className="w-full h-full flex items-center justify-center p-2">
-              <InstagramEmbed url={instagramUrl} width={430} />
+          <div className="w-[330px] h-[400px] flex items-center justify-center bg-white rounded-lg border border-gray-300 shadow-sm overflow-hidden">
+            <div className="w-full h-full flex items-center justify-center scale-75 origin-center">
+              <InstagramEmbed url={instagramUrl} width={330} />
             </div>
           </div>
         </div>
