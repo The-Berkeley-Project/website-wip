@@ -38,7 +38,7 @@ const FramedCard: React.FC<Props> = ({
         <img
           src={imageUrl}
           alt="Main content"
-          className="absolute object-cover rounded-lg z-20"
+          className="absolute object-cover rounded-lg z-30"
           style={{
             top: "65px",
             left: "50%",
@@ -54,7 +54,7 @@ const FramedCard: React.FC<Props> = ({
         <img
           src={frameUrl}
           alt="Card frame"
-          className="absolute inset-0 w-full h-full object-contain pointer-events-none z-30"
+          className="absolute inset-0 w-full h-full object-contain pointer-events-none z-20"
         />
       )}
 

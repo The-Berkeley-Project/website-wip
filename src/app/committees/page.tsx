@@ -8,31 +8,31 @@ export default function CommitteesPage() {
   const execBoard = [
     {
       title: "Operations president",
-      imageUrl: "/Exec1.png",
+      imageUrl: "Calvin.JPG",
       bgColor: "#E9F2FA",
       bottomText: "Calvin Kang (he/him)",
     },
     {
       title: "Internal President",
-      imageUrl: "/Exec2.png",
+      imageUrl: "Jennie.JPG",
       bgColor: "#E9F2FA",
       bottomText: "Jennie Son (she/her)",
     },
     {
       title: "External President",
-      imageUrl: "/Exec3.png",
+      imageUrl: "/Javan.jpg",
       bgColor: "#E9F2FA",
       bottomText: "Javan leong (he/him)",
     },
     {
       title: "Outreach President",
-      imageUrl: "/Exec4.png",
+      imageUrl: "/Raveen.jpg",
       bgColor: "#E9F2FA",
       bottomText: "Raveen Noory (they/them)",
     },
     {
       title: "Community President",
-      imageUrl: "/Exec5.png",
+      imageUrl: "/Prongha.png",
       bgColor: "#E9F2FA",
       bottomText: "Prongha Taluker (he/him)",
     },
@@ -57,8 +57,8 @@ export default function CommitteesPage() {
         "External Affairs organizes the logistics of Berkeley Project Day, helps fundraise, plans the BP Day before/after event, reaches out to campus organizations, and helps strategize the BP Day theme all while getting to interact a little with every other team. Our goal is to help coordinate the logistics of BP Day to bring together students and the community through volunteering.",
       color: "#F3E8C8",
       members: [
-        { name: "Anna Cheng (she/her)", image: "/Committee.png" },
-        { name: "Jimmy Zhong (he/him)", image: "/Core.png" },
+        { name: "Anna Cheng (she/her)", image: "/anna.png" },
+        { name: "Jimmy Zhong (he/him)", image: "/jimmy.jpeg" },
       ],
     },
     {
@@ -69,8 +69,8 @@ export default function CommitteesPage() {
       color: "#EDF8E2",
       members: [
         { name: "Abhinav Vanteru Reddy (he/him)", image: "/Finance.png" },
-        { name: "Cole Yap (he/him)", image: "/Finance2.png" },
-        { name: "Amber Cui (she/her)", image: "/Finance3.png" },
+        { name: "Cole Yap (he/him)", image: "/Cole.jpeg" },
+        { name: "Amber Cui (she/her)", image: "/amber.JPG" },
       ],
     },
     {
@@ -80,9 +80,9 @@ export default function CommitteesPage() {
         "Marketing is in charge of all the promotional content and the branding for Berkeley Project. Marketing co-directors and committee members create all the flyers, bookmarks, social media events and promotional posts, to attract as many volunteers as possible. On BP Day, we run around to all the different sites to take cute, candid pictures of our volunteers and site leaders hard at work to capture the memories and impact they have on the Berkeley community.",
       color: "#E9F2FA",
       members: [
-        { name: "Evelyn Kim (she/her)", image: "/Marketing.png" },
-        { name: "Kelly Cheng (she/her)", image: "/Marketing2.png" },
-        { name: "Victoria Hong (she/her)", image: "/Marketing2.png" },
+        { name: "Evelyn Kim (she/her)", image: "/evelyn.jpg" },
+        { name: "Kelly Cheng (she/her)", image: "/kelly.JPG" },
+        { name: "Victoria Hong (she/her)", image: "/victoria.JPG" },
       ],
     },
     {
@@ -92,8 +92,8 @@ export default function CommitteesPage() {
         "Site Planning is in charge of acquiring the site logistics for all BP Days. Using lists of past sites compiled from previous years and new sites from individual research and network, Site Planning co-directors and committee members have the task of contacting community organizers and city workers regarding projects for BP Days. We gather this information via phone calls and e-mails, and neatly record it in a Google document that is shared with all BP Core Members.",
       color: "#ECECEC",
       members: [
-        { name: "Jordan Cheng (she/her)", image: "/SitePlanning.png" },
-        { name: "Sophia Bazini-Barakat (she/her)", image: "/SitePlanning2.png" },
+        { name: "Jordan Cheng (she/her)", image: "/Jordan.png" },
+        { name: "Sophia Bazini-Barakat (she/her)", image: "/sophia.png" },
       ],
     },
     {
@@ -103,8 +103,8 @@ export default function CommitteesPage() {
         "Volunteer is responsible for creating the Site Leader/Volunteer application and selecting Site Leaders. From here, we plan and train Site Leaders to be effective points of contact and organizers of their respective volunteers. Ultimately, we are responsible for every Site Leader and Volunteer on BP Day (roughly 2,000 people) to ensure the event runs smoothly! :)",
       color: "#FFF7DA",
       members: [
-        { name: "Arshul Garg (he/him)", image: "/Volunteer.png" },
-        { name: "Catalina Quach (she/her)", image: "/Volunteer2.png" },
+        { name: "Arshul Garg (he/him)", image: "/arshul.jpg" },
+        { name: "Catalina Quach (she/her)", image: "/cat.jpg" },
       ],
     },
     {
