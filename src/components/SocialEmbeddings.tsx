@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { TikTokEmbed, InstagramEmbed } from "react-social-media-embed";
 
 /**
@@ -23,6 +23,12 @@ const SocialEmbeddings: React.FC<Props> = ({
   instagramUrl = INSTAGRAM_URL,
   newsletterUrl = NEWSLETTER_URL,
 }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <section className="w-full py-12 px-4 bg-white">
       {/* Header Section */}
@@ -41,7 +47,11 @@ const SocialEmbeddings: React.FC<Props> = ({
         <div className="flex justify-center w-full">
           <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
             <div className="w-full h-full flex items-center justify-center p-2">
-              <TikTokEmbed url={tiktokUrl} width={430} />
+              {isMounted ? (
+                <TikTokEmbed url={tiktokUrl} width={430} />
+              ) : (
+                <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
+              )}
             </div>
           </div>
         </div>
@@ -64,7 +74,11 @@ const SocialEmbeddings: React.FC<Props> = ({
         <div className="flex justify-center w-full">
           <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
             <div className="w-full h-full flex items-center justify-center p-2">
-              <InstagramEmbed url={instagramUrl} width={430} />
+              {isMounted ? (
+                <InstagramEmbed url={instagramUrl} width={430} />
+              ) : (
+                <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
+              )}
             </div>
           </div>
         </div>
