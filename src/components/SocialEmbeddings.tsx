@@ -45,7 +45,7 @@ const SocialEmbeddings: React.FC<Props> = ({
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-3 items-start justify-items-center">
         {/* TikTok Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
+          <div className="w-[330px] h-[400px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
             <div className="w-full h-full flex items-center justify-center p-2">
               {isMounted ? (
                 <TikTokEmbed url={tiktokUrl} width={330} />
@@ -75,7 +75,7 @@ const SocialEmbeddings: React.FC<Props> = ({
           <div className="w-[330px] h-[400px] flex items-center justify-center bg-white rounded-lg border border-gray-300 shadow-sm overflow-hidden">
             <div className="w-full h-full flex items-center justify-center scale-75 origin-center">
               {isMounted ? (
-                <InstagramEmbed url={instagramUrl} width={430} />
+                <InstagramEmbed url={instagramUrl} width={330} />
               ) : (
                 <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
               )}
