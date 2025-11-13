@@ -4,6 +4,8 @@ import CardFan from "@/components/CardFan";
 import LongCard from "@/components/longCard";
 
 export default function CommitteesPage() {
+
+
   // Exec
   const execBoard = [
     {
@@ -68,7 +70,7 @@ export default function CommitteesPage() {
         "Finance team feeds and provides supplies for volunteers by fundraising, applying to grants, and reaching out to local corporations and other on-campus organizations. The team manages reimbursements and allocates funding to other committees to ensure all cash flows are accounted for. Our work ensures that volunteers are engaged and supported in the days leading up to and including Berkeley Project Day.",
       color: "#EDF8E2",
       members: [
-        { name: "Abhinav Vanteru Reddy (he/him)", image: "/Finance.png" },
+        { name: "Abhinav Vanteru Reddy (he/him)", image: "/abhinav.png" },
         { name: "Cole Yap (he/him)", image: "/Cole.jpeg" },
         { name: "Amber Cui (she/her)", image: "/amber.JPG" },
       ],
@@ -114,15 +116,15 @@ export default function CommitteesPage() {
         "Web is responsible for updating and maintaining the berkeleyproject.org website and sorting volunteer/site leader applications. We communicate with other committees to provide important updates to the Berkeley Project community! This committee is a creative and diverse space open for students to take on individual projects (i.e. bot for tabling sign-ups) or expansion projects (i.e. redesign graphics, new subpages).",
       color: "#E9E6FA",
       members: [
-        { name: "Mindy Phan (she/her)", image: "/Web.png" },
-        { name: "Devika Sharma (they/them)", image: "/Web2.png" },
+        { name: "Mindy Phan (she/her)", image: "/mindy.png" },
+        { name: "Devika Sharma (they/them)", image: "/devika.png" },
       ],
     },
   ];
 
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5]">
+    <div className="min-h-screen bg-gradient-to-b from-[#E3F9FF] to-white text-gray-900">
       <main className="mx-auto max-w-5xl px-6 pt-40 pb-16 space-y-24">
         {/*OUR EXEC BOARD*/}
         <section className="text-center space-y-10">
@@ -197,5 +199,6 @@ export default function CommitteesPage() {
         </section>
       </main>
     </div>
+
   );
 }
