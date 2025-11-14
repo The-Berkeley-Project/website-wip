@@ -16,11 +16,6 @@ export default function GalleryPage() {
   const galleries: Galleries = {
     "2025": [
       {
-        title: "FALL",
-        image: "/photos/fa25_cover.png",
-        gallery: [],
-      },
-      {
         title: "SPRING",
         image: "/photos/sp25/sp25_cover.png",
         gallery: [
@@ -50,34 +45,14 @@ export default function GalleryPage() {
           { img: "/photos/sp25/sp25_24.jpg" },
         ],
       },
-    ],
-    "2024": [
       {
         title: "FALL",
-        image: "/photos/fa24/fa24_cover.png",
-        gallery: [
-          { img: "/photos/fa24/fa24_1.jpeg" },
-          { img: "/photos/fa24/fa24_2.jpg" },
-          { img: "/photos/fa24/fa24_3.jpeg" },
-          { img: "/photos/fa24/fa24_4.jpg" },
-          { img: "/photos/fa24/fa24_5.jpg" },
-          { img: "/photos/fa24/fa24_6.jpeg" },
-          { img: "/photos/fa24/fa24_7.jpg" },
-          { img: "/photos/fa24/fa24_8.jpeg" },
-          { img: "/photos/fa24/fa24_9.jpg" },
-          { img: "/photos/fa24/fa24_10.jpeg" },
-          { img: "/photos/fa24/fa24_11.jpg" },
-          { img: "/photos/fa24/fa24_12.jpg" },
-          { img: "/photos/fa24/fa24_13.jpg" },
-          { img: "/photos/fa24/fa24_14.jpg" },
-          { img: "/photos/fa24/fa24_15.jpeg" },
-          { img: "/photos/fa24/fa24_16.jpg" },
-          { img: "/photos/fa24/fa24_17.jpg" },
-          { img: "/photos/fa24/fa24_18.jpeg" },
-          { img: "/photos/fa24/fa24_19.jpg" },
-          { img: "/photos/fa24/fa24_20.jpg" },
-        ],
+        image: "/photos/fa25_cover.png",
+        gallery: [],
       },
+      
+    ],
+    "2024": [
       {
         title: "SPRING",
         image: "/photos/sp24/sp24_cover.png",
@@ -105,8 +80,60 @@ export default function GalleryPage() {
           { img: "/photos/sp24/sp24_21.jpg" },
         ],
       },
+      {
+        title: "FALL",
+        image: "/photos/fa24/fa24_cover.png",
+        gallery: [
+          { img: "/photos/fa24/fa24_1.jpeg" },
+          { img: "/photos/fa24/fa24_2.jpg" },
+          { img: "/photos/fa24/fa24_3.jpeg" },
+          { img: "/photos/fa24/fa24_4.jpg" },
+          { img: "/photos/fa24/fa24_5.jpg" },
+          { img: "/photos/fa24/fa24_6.jpeg" },
+          { img: "/photos/fa24/fa24_7.jpg" },
+          { img: "/photos/fa24/fa24_8.jpeg" },
+          { img: "/photos/fa24/fa24_9.jpg" },
+          { img: "/photos/fa24/fa24_10.jpeg" },
+          { img: "/photos/fa24/fa24_11.jpg" },
+          { img: "/photos/fa24/fa24_12.jpg" },
+          { img: "/photos/fa24/fa24_13.jpg" },
+          { img: "/photos/fa24/fa24_14.jpg" },
+          { img: "/photos/fa24/fa24_15.jpeg" },
+          { img: "/photos/fa24/fa24_16.jpg" },
+          { img: "/photos/fa24/fa24_17.jpg" },
+          { img: "/photos/fa24/fa24_18.jpeg" },
+          { img: "/photos/fa24/fa24_19.jpg" },
+          { img: "/photos/fa24/fa24_20.jpg" },
+        ],
+      },
     ],
     "2023": [
+      {
+        title: "SPRING",
+        image: "/photos/sp23/sp23_cover.png",
+        gallery: [
+          { img: "/photos/sp23/sp23_1.jpg" },
+          { img: "/photos/sp23/sp23_2.jpg" },
+          { img: "/photos/sp23/sp23_3.jpg" },
+          { img: "/photos/sp23/sp23_4.jpeg" },
+          { img: "/photos/sp23/sp23_5.jpeg" },
+          { img: "/photos/sp23/sp23_6.jpeg" },
+          { img: "/photos/sp23/sp23_7.jpeg" },
+          { img: "/photos/sp23/sp23_8.jpg" },
+          { img: "/photos/sp23/sp23_9.jpg" },
+          { img: "/photos/sp23/sp23_10.jpg" },
+          { img: "/photos/sp23/sp23_11.jpg" },
+          { img: "/photos/sp23/sp23_12.jpg" },
+          { img: "/photos/sp23/sp23_13.jpg" },
+          { img: "/photos/sp23/sp23_14.jpg" },
+          { img: "/photos/sp23/sp23_15.jpg" },
+          { img: "/photos/sp23/sp23_16.jpg" },
+          { img: "/photos/sp23/sp23_17.jpeg" },
+          { img: "/photos/sp23/sp23_18.jpg" },
+          { img: "/photos/sp23/sp23_19.jpeg" },
+          { img: "/photos/sp23/sp23_20.jpeg" },
+        ],
+      },
       {
         title: "FALL",
         image: "/photos/fa23/fa23_cover.png",
@@ -135,32 +162,6 @@ export default function GalleryPage() {
           { img: "/photos/fa23/fa23_22.jpeg" },
         ],
       },
-      {
-        title: "SPRING",
-        image: "/photos/sp23/sp23_cover.png",
-        gallery: [
-          { img: "/photos/sp23/sp23_1.jpg" },
-          { img: "/photos/sp23/sp23_2.jpg" },
-          { img: "/photos/sp23/sp23_3.jpg" },
-          { img: "/photos/sp23/sp23_4.jpeg" },
-          { img: "/photos/sp23/sp23_5.jpeg" },
-          { img: "/photos/sp23/sp23_6.jpeg" },
-          { img: "/photos/sp23/sp23_7.jpeg" },
-          { img: "/photos/sp23/sp23_8.jpg" },
-          { img: "/photos/sp23/sp23_9.jpg" },
-          { img: "/photos/sp23/sp23_10.jpg" },
-          { img: "/photos/sp23/sp23_11.jpg" },
-          { img: "/photos/sp23/sp23_12.jpg" },
-          { img: "/photos/sp23/sp23_13.jpg" },
-          { img: "/photos/sp23/sp23_14.jpg" },
-          { img: "/photos/sp23/sp23_15.jpg" },
-          { img: "/photos/sp23/sp23_16.jpg" },
-          { img: "/photos/sp23/sp23_17.jpeg" },
-          { img: "/photos/sp23/sp23_18.jpg" },
-          { img: "/photos/sp23/sp23_19.jpeg" },
-          { img: "/photos/sp23/sp23_20.jpeg" },
-        ],
-      },
     ],
   };
 
@@ -175,7 +176,7 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f5] flex flex-col items-center pt-36 pb-24 font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-[#E3F9FF] to-white flex flex-col items-center pt-36 pb-24 font-sans">
       {/* 2025 SECTION */}
       <h2 className="text-3xl font-semibold text-gray-800 mb-10 uppercase tracking-wide">
         2025

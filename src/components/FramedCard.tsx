@@ -40,11 +40,11 @@ const FramedCard: React.FC<Props> = ({
           alt="Main content"
           className="absolute object-cover rounded-lg z-30"
           style={{
-            top: "65px",
-            left: "50%",
+            top: "49px",
+            left: "49.5%",
             transform: "translateX(-50%)",
-            width: "80%",
-            height: "64%",
+            width: "83%",
+            height: "65%",
           }}
         />
       )}
