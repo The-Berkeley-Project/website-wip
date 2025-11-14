@@ -30,56 +30,52 @@ const SocialEmbeddings: React.FC<Props> = ({
   }, []);
 
   return (
-    <section className="w-full py-12 px-4 bg-white">
+    <section className="w-full py-3 px-4 bg-white">
       {/* Header Section */}
-      <div className="text-center mb-8">
-        <h2 className="text-4xl font-bold text-gray-900 mb-3">
+      <div className="text-center mb-12">
+        <h2 className="text-4xl font-bold text-center mb-4 text-black">
           Check Out Our Socials!
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl font-bold text-gray-600 ml-3">
           See the impact we&apos;re making in the Berkeley community through our social media
         </p>
       </div>
 
       {/* Embeds Container */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 items-start justify-items-center">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-1 items-start justify-items-center mb-30">
         {/* TikTok Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
-            <div className="w-full h-full flex items-center justify-center p-2">
-              {isMounted ? (
-                <TikTokEmbed url={tiktokUrl} width={430} />
-              ) : (
-                <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
-              )}
-            </div>
+          <div className="w-[325px] h-[500px] bg-white rounded-lg border border-gray-300 shadow-sm overflow-auto">
+            {isMounted ? (
+              <TikTokEmbed url={tiktokUrl} width={325} />
+            ) : (
+              <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
+            )}
           </div>
         </div>
 
         {/* Newsletter Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-hidden">
+          <div className="w-[325px] h-[500px] flex items-center justify-center bg-white rounded-lg border border-gray-300 shadow-sm overflow-hidden">
             <iframe
               src={newsletterUrl}
               width="100%"
               height="100%"
               style={{ border: 'none' }}
               title="Berkeley Project Newsletter"
-              className="rounded-2xl"
+              className="rounded-lg"
             />
           </div>
         </div>
 
         {/* Instagram Embed */}
         <div className="flex justify-center w-full">
-          <div className="w-[450px] h-[700px] flex items-center justify-center bg-white rounded-2xl border-2 border-gray-300 shadow-sm overflow-auto">
-            <div className="w-full h-full flex items-center justify-center p-2">
-              {isMounted ? (
-                <InstagramEmbed url={instagramUrl} width={430} />
-              ) : (
-                <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
-              )}
-            </div>
+          <div className="w-[325px] h-[500px] bg-white rounded-lg border border-gray-300 shadow-sm overflow-auto">
+            {isMounted ? (
+              <InstagramEmbed url={instagramUrl} width={325} />
+            ) : (
+              <div className="animate-pulse bg-gray-200 w-full h-full rounded-lg" />
+            )}
           </div>
         </div>
       </div>
