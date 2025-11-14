@@ -425,6 +425,7 @@ export default function Home() {
       </section>
 
       <SocialEmbeddings />
+      <StickyNewsletterBar />    
 
     </div>
   );
